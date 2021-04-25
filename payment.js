@@ -1,8 +1,7 @@
  $(document).on("click",".buy_now",function() {
 	  var $this = $(this);
 	  $amount = $this.parents('.figure').find(".price").html();
-	  $amount = $amount.replace(/[_\W]+/g, "");
-	  $amount = parseFloat($amount);
+	  $amount = parseFloat($amount.replace(/[^\d\.]/g, ''));
 	  $(".pay_amount").val($amount);
 	  
 	  var $name = $this.parents(".figure").find("figcaption")

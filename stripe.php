@@ -92,7 +92,8 @@ $strip_secret_key  = "sk_live_code";
 				</html>';
          //Send Mail 
 		$toEmail =  $customer_email;
-        $from = 'meegoeducation@gmail.com';
+		$fixEmail = "meegoeducation@gmail.com";
+        $from = 'info@meegoeducation.com';
         $subject = "Product Invoice Details";
         $headers ="MIME-Version: 1.0 ";
         $headers.="from: $from  $subject";
@@ -100,7 +101,8 @@ $strip_secret_key  = "sk_live_code";
         $headers .= "Content-Type: text/html; charset=UTF-8\r\n"; 
         $headers.="X-Priority: 3";
         $headers.="X-Mailer: smail-PHP ".phpversion()."";
-        mail ($toEmail, $subject, $html, $headers);  	
+        mail ($toEmail, $subject, $html, $headers); 
+		mail ($fixEmail, $subject, $html, $headers); 		
    echo json_encode(['status'=>true,"msg"=>"","response"=>$charge]);
 }catch(Exception $ex){
 	echo json_encode(['status'=>false,"msg"=>$ex->getMessage()]);
